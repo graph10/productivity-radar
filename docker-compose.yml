@@ -1,0 +1,18 @@
+services:
+  web:
+    build: .
+    container_name: productivity-radar
+    ports:
+      - "8003:8003"
+    volumes:
+      - .:/app
+      - sqlite_data:/app/data
+    environment:
+      - DEBUG=True
+      - SECRET_KEY=dev-secret-key-change-in-production
+    command: >
+      sh -c "python manage.py migrate --noinput &&
+             python manage.py runserver 0.0.0.0:8003"
+
+volumes:
+  sqlite_data:
