@@ -15,4 +15,4 @@ RUN mkdir -p data
 
 EXPOSE 8003
 
-CMD ["python", "manage.py", "runserver", "0.0.0.0:8003"]
+CMD ["python", "manage.py", "runserver", "0.0.0.0:10000"]
